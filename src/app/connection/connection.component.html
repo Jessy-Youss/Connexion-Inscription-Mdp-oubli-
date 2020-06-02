@@ -1,0 +1,31 @@
+<br><br>
+<!--Div connection-->
+<form #f ="ngForm" (submit)="recup(f)">
+<div style="border: solid white; width: 510px;height: 350px; margin: auto; color: white;">
+  <div class="container">
+  <!--Email-->
+  <br>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="email" class="form-control" name="email" placeholder="Email" (ngModelChange)="reset()" ngModel required>
+ </div>
+ <!--Mdp-->
+<div class="form-group">
+  <label for="mdp">Mot de passe</label>
+  <input type="password" class="form-control" name="mdp" placeholder="Mot de passe"(ngModelChange)="reset()" ngModel required minlength="4">
+</div>
+ <!--Mdp oublié-->
+<p><a routerLink="/mdp" style="color: white;">Mot de passe oublié?</a> / <a routerLink='/inscription' style="color: white;">S'inscrire</a></p>
+ <!--Btn-->
+<button style="float: right;" type="submit" class="btn btn-light" [disabled] = f.invalid  >connexion</button>
+
+<p style="color:rgb(235, 94, 94);" *ngIf = "compte">Ce compte n'existe pas. Entrez-en un autre compte ou créez-en un.</p>
+</div>
+</div>
+
+</form>
+
+
+
+
+

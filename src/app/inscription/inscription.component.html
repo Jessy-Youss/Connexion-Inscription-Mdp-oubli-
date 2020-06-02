@@ -1,0 +1,30 @@
+<br><br>
+<form [formGroup] = "userForm" (ngSubmit)="submitForm()">
+<div style="border: solid white; width: 510px;height: 450px; margin: auto; color: white;">
+    <div class="container">
+    <h5 style="text-decoration: underline;text-align: center;">Inscription</h5>
+    <!--nom-->
+  <div class="form-group">
+    <label for="nom">Nom</label>
+    <input type="text" class="form-control" placeholder="Nom" formControlName="nom"> 
+ </div>
+  <!--prenom-->
+  <div class="form-group">
+    <label for="prenom">Prenom</label>
+    <input type="text" class="form-control"  placeholder="Prenom" formControlName="prenom">
+ </div>
+ <!--mail-->
+ <div class="form-group">
+    <label for="mail">Mail</label>
+    <input type="text" class="form-control" placeholder="Mail" formControlName="mail">
+ </div>
+ <!--mdp-->
+ <div class="form-group">
+    <label for="mdp">Mot de passe</label>
+    <input type="password" class="form-control" placeholder="Mot de passe (min 4 caractères)" formControlName="mdp">
+ </div>
+ <button type="submit" style="float: right;" class="btn btn-light" [disabled]='userForm.invalid' (click)="creation()">Valider</button>
+ <button routerLink="/connection" class="btn btn-light">Retour</button>
+</div>
+</div>
+</form>

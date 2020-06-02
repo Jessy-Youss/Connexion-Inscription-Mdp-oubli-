@@ -1,0 +1,35 @@
+<br><br>
+
+<div style="border: solid white; width: 510px;height: 380px; margin: auto; color: white;">
+    <div class="container">
+        <h5 style="text-decoration: underline;text-align: center;">Mot de passe</h5>
+        <br>
+        <!--Email-->
+        <div  *ngIf="!newMdp" class="form-group">
+          <label for="email">Entrez votre adresse Email</label>
+          <input type="email" class="form-control" name="email" placeholder="Email" (ngModelChange)="reset()" [(ngModel)]='email'>
+       </div>
+       <button *ngIf="!newMdp" (click)='recupMail()' style="float: right;" type="submit" class="btn btn-light" >Confirmer</button>
+       <button *ngIf="!newMdp" routerLink="/connection" class="btn btn-light">Retour</button>
+       <p *ngIf ="err" style="color:rgb(235, 94, 94);">Ce compte n'existe pas. Entrez-en un autre compte ou créez-en un.</p>
+     
+     
+     <form #f='ngForm' (submit)="recup(f)">
+       <!--newMdp-->
+       <div *ngIf="newMdp" class="form-group">
+        <label for="newMdp">Nouveau mot de passe (min 4 caractères)</label>
+        <input type="password" class="form-control" name="newMdp" placeholder="nouveau mot de passe" (ngModelChange)="reset()" ngModel required minlength="4">
+     </div>
+        <!--Conirmation-->
+     <div *ngIf="newMdp" class="form-group" >
+        <label for="newMdp">Confirmer le mot de passe</label>
+        <input type="password" class="form-control" name="newMdpConfirm" placeholder="Confirmer mot de passe" (ngModelChange)="reset()" ngModel required minlength="4">
+     </div>
+    <button *ngIf="newMdp" style="float: right;" type="submit" class="btn btn-light" [disabled]='f.invalid' >Valider</button>
+    <button *ngIf="newMdp" class="btn btn-light" (click)="cache()">Retour</button>
+    <p *ngIf ="mdpChangeIdentique" style="color:rgb(235, 94, 94);">Les mots de passe ne sont pas identique.</p>
+
+   </form>
+   </div>
+
+</div>
